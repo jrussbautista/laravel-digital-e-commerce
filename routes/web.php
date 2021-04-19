@@ -16,5 +16,12 @@ use \App\Http\Controllers\HomeController;
 
 Route::get('/', HomeController::class)->name('home');
 
+Route::get('/products/{product:slug}', [\App\Http\Controllers\ProductController::class, 'show'])->name('products.show');
+
+Route::post('/cart/products', [\App\Http\Controllers\CartProductController::class, 'store'])->name('cart.products.store');
+Route::delete('/cart/products/{product}', [\App\Http\Controllers\CartProductController::class, 'destroy'])->name('cart.products.destroy');
+
+Route::get('/cart',  [\App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
+
 
 require __DIR__.'/auth.php';
