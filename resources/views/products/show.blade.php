@@ -11,7 +11,7 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="p-6 bg-white">
                         <h1>{{ $product->title }}</h1>
-                        <p> {{ $product->price }}</p>
+                        <p> @money($product->price) </p>
                         <p> {{ $product->description }}</p>
 
                         <form action="{{ route('cart.products.store') }}" method="POST">

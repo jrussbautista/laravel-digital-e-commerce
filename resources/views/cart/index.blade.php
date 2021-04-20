@@ -20,7 +20,7 @@
                     </div>
                 @endforeach
                 <div class="mt-3">
-                    <p>Total: x</p>
+                    <p>Total: {{ $cart->total() }}</p>
                     <x-button class="mt-3">
                         {{ __('Check Out') }}
                     </x-button>
