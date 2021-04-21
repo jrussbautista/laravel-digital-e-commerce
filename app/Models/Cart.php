@@ -13,7 +13,7 @@ class Cart extends Model
 
     public function scopeBySession($query)
     {
-        return $query->where('session_id', session()->getId());
+        return $query->where('session_id', session()->getId())->latest();
     }
 
     public function products()  {

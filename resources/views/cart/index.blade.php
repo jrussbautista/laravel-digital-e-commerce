@@ -11,7 +11,7 @@
                 @foreach($cart->products as $product)
                     <div class="p-6 bg-white border-b border-gray-200 mb-3">
                         <p>{{ $product->title }}</p>
-                        <p>{{ $product->price }}</p>
+                        <p>@money($product->price)</p>
                         <form action="{{ route('cart.products.destroy',  $product) }}" method="post" class="mt-3">
                             @csrf
                             @method('DELETE')
@@ -20,10 +20,10 @@
                     </div>
                 @endforeach
                 <div class="mt-3">
-                    <p>Total: {{ $cart->total() }}</p>
-                    <x-button class="mt-3">
+                    <p>Total: @money($cart->total())</p>
+                    <a href="{{ route('checkout.index') }}" class="mt-3">
                         {{ __('Check Out') }}
-                    </x-button>
+                    </a>
                 </div>
             @else
                 <div> Your cart is empty </div>
