@@ -51,4 +51,8 @@ class User extends Authenticatable
     public function orders() {
         return $this->hasMany(Order::class);
     }
+
+    public function isProductPurchased(Product $product) {
+        return $this->orders->pluck('products')->flatten()->contains('id', $product->id);
+    }
 }

@@ -16,7 +16,7 @@
                         <div class="mb-2">
                             <p>{{ $product->title }}</p>
                             <p>@money($product->price)</p>
-                            <a href="#" class="text-indigo-500"> Download </a>
+                            <a href="{{ route('products.downloads.show', $product) }}" class="text-indigo-500"> Download </a>
                         </div>
                     @endforeach
                         <div>
