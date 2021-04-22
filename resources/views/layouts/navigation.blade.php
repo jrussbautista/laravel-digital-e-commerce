@@ -19,6 +19,9 @@
                         {{ __('Cart') }}
                         ({{ $cart ? $cart->products->count() : 0 }})
                     </x-nav-link>
+                    <x-nav-link :href="route('orders.index')" :active="request()->routeIs('orders.index')">
+                        {{ __('Orders') }}
+                    </x-nav-link>
                 </div>
             </div>
 

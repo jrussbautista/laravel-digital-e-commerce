@@ -22,7 +22,13 @@ Route::post('/cart/products', [\App\Http\Controllers\CartProductController::clas
 Route::delete('/cart/products/{product}', [\App\Http\Controllers\CartProductController::class, 'destroy'])->name('cart.products.destroy');
 
 Route::get('/cart',  [\App\Http\Controllers\CartController::class, 'index'])->name('cart.index');
+
 Route::get('/checkout',  [\App\Http\Controllers\CheckoutController::class, 'index'])->name('checkout.index')->middleware('auth');
+
+Route::get('/orders', [\App\Http\Controllers\OrderController::class, 'index'])->name('orders.index')->middleware('auth');
+
+
+Route::post('/stripe/webhook',  [\App\Http\Controllers\StripeWebHookController::class, 'handleWebhook']);
 
 
 require __DIR__.'/auth.php';
